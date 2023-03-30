@@ -2,8 +2,6 @@ name: Preview
 on:
   push:
 permissions: write-all
-env:
-  DE: ${{ vars.DEPLOY_ENVIRONMENT }}
 
 jobs:
   preview_build:
@@ -19,4 +17,8 @@ jobs:
           echo ${GITHUB_REF##*/}
           echo ${GITHUB_REF}
           echo $DE
+      - name: Separate deploy_environment
+        run: $DE
+    env:
+      DE: ${{ vars.DEPLOY_ENVIRONMENT }}
       
