@@ -1,12 +1,16 @@
 name: Preview
 on:
   push:
+    branches:
+      - main
+      - prod
 permissions: write-all
-
+env:
+  DE_WL: ${{ vars.DEPLOY_ENVIRONMENT }}
 jobs:
   preview_build:
     runs-on: ubuntu-latest
-    environment: ${GITHUB_REF##*/}
+    environment: prod
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -18,7 +22,8 @@ jobs:
           echo ${GITHUB_REF}
           echo $DE
       - name: Separate deploy_environment
-        run: $DE
+        run: |
+          echo $DE_WL
+          echo $DE_JL
     env:
-      DE: ${{ vars.DEPLOY_ENVIRONMENT }}
-      
+      DE_JL: ${{ vars.DEPLOY_ENVIRONMENT }}
