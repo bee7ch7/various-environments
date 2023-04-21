@@ -1,4 +1,4 @@
-name: Preview - ${{ github.ref_name }}
+name: Preview - dev/stage/uat
 on:
   push:
 permissions: write-all
