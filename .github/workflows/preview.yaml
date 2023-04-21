@@ -17,6 +17,7 @@ jobs:
           echo ${GITHUB_REF##*/}
           echo ${GITHUB_REF}
           echo $DE
+          echo ${{ github.ref_name }}
       - name: Separate deploy_environment
         run: $DE
     env:
