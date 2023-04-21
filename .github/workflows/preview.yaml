@@ -1,4 +1,4 @@
-name: Preview
+name: Preview - ${{ github.ref_name }}
 on:
   push:
 permissions: write-all
@@ -6,7 +6,7 @@ permissions: write-all
 jobs:
   preview_build:
     runs-on: ubuntu-latest
-    environment: ${GITHUB_REF##*/}
+    environment: ${{ github.ref_name }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
