@@ -21,7 +21,7 @@ jobs:
           echo ${GITHUB_REF}
           echo $DE
           echo ${{ github.ref_name }}
-          echp ${{ env.VARI }}
+          echo ${{ env.VARI }}
       - name: Separate deploy_environment
         run: $DE
     env:
