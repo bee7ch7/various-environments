@@ -5,6 +5,7 @@ permissions: write-all
 
 env:
   VARI: hello/${{ github.ref_name }}
+  COND: if ["${{ github.ref_name }}" == "main"]; then "A" else "B" fi
 
 jobs:
   preview_build:
@@ -22,8 +23,7 @@ jobs:
           echo $DE
           echo ${{ github.ref_name }}
           echo ${{ env.VARI }}
-      - name: Separate deploy_environment
-        run: $DE
+          echo ${{ env.COND }}
     env:
       DE: ${{ vars.DEPLOY_ENVIRONMENT }}
       
