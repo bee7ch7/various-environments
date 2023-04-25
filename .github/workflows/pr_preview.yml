@@ -1,9 +1,11 @@
 name: Preview - dev/stage/uat
 on:
-  push:
+  pull_request:
     branches:
-      - main
-      - prod
+      - dev
+      - stage
+      - uat
+      
 permissions: write-all
 
 env:
@@ -22,9 +24,11 @@ jobs:
         run: |
           echo ${GITHUB_REF##*/}
           echo ${GITHUB_REF}
+          echo $DE
           echo ${{ github.ref_name }}
           echo ${{ env.VARI }}
-          echo ${{ env.COND }}
-          env
+          echo ${{ github.head_ref }} - head
+          echo ${{ github.base_ref }} - base
     env:
-      DE_JL: ${{ vars.DEPLOY_ENVIRONMENT }}
+      DE: ${{ vars.DEPLOY_ENVIRONMENT }}
+      
