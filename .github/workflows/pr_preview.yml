@@ -27,8 +27,8 @@ jobs:
           echo $DE
           echo ${{ github.ref_name }}
           echo ${{ env.VARI }}
-          echo ${{ github.head_ref }}
-          echo ${{ github.base_ref }}
+          echo ${{ github.head_ref }} - head
+          echo ${{ github.base_ref }} - base
     env:
       DE: ${{ vars.DEPLOY_ENVIRONMENT }}
       
