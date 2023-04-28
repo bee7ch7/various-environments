@@ -9,6 +9,7 @@ permissions: write-all
 
 env:
   VARI: hello/${{ github.ref_name }}
+  PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
 
 jobs:
   preview_build:
@@ -53,6 +54,7 @@ jobs:
         run: |
           echo ${{ env.IMAGE_TAG }} - image tag
           cat ./k8s/helm/Chart.yaml
+          echo ${{ dev-env.VARI}}
       - name: pulumi version
         run: |
           pulumi stack output kinesisFirehoseRole -s bee7ch7/experiments/dev
