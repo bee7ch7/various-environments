@@ -1,6 +1,6 @@
 #!/bin/bash
 cd ./k8s/helm
 
-VAR=hello_world
+VAR=$(pulumi stack output kinesisFirehoseRole -s bee7ch7/experiments/dev)
 
 echo $VAR
