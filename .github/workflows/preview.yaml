@@ -56,6 +56,5 @@ jobs:
           cat ./k8s/helm/Chart.yaml
           echo ${{ env.VARI}}
       - name: pulumi version
-        run: |
-          pulumi stack output kinesisFirehoseRole -s bee7ch7/experiments/dev
+        run: bash ./k8s/helm
         
