@@ -45,10 +45,11 @@ jobs:
         run: |
           git describe --tags
           echo IMAGE_TAG=$(git describe --tags) >> $GITHUB_ENV
-          echo ${{ env.IMAGE_TAG }}
-          sed -i "s/^appVersion:.*$/appVersion: ${{ env.IMAGE_TAG }}/" ./k8s/helm/Chart.yaml
-          echo ${{ env.IMAGE_TAG }} - image tag
+          echo $IMAGE_TAG
+          sed -i "s/^appVersion:.*$/appVersion: $(git describe --tags)/" ./k8s/helm/Chart.yaml
           cat ./k8s/helm/Chart.yaml
 
       - name: show after changes
-        run: cat ./k8s/helm/Chart.yaml
+        run: |
+          echo ${{ env.IMAGE_TAG }} - image tag
+          cat ./k8s/helm/Chart.yaml
