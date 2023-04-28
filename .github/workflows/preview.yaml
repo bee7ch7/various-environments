@@ -43,9 +43,9 @@ jobs:
 
       - name: Set image tag
         run: |
-          git describe --tags
-          echo IMAGE_TAG=$(git describe --tags) >> $GITHUB_ENV
-          IMAGE_TAG=$(git describe --tags)
+          git describe --tags --abbrev=0
+          echo IMAGE_TAG=$(git describe --tags --abbrev=0) >> $GITHUB_ENV
+          IMAGE_TAG=$(git describe --tags --abbrev=0)
           sed -i "s/^appVersion:.*$/appVersion: $IMAGE_TAG/" ./k8s/helm/Chart.yaml
           cat ./k8s/helm/Chart.yaml
 
