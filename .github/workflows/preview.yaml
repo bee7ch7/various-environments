@@ -43,10 +43,10 @@ jobs:
 
       - name: Set image tag
         run: |
-          echo git describe --tags
+          git describe --tags
           echo IMAGE_TAG=$(git describe --tags) >> $GITHUB_ENV
           sed -i "s/^appVersion:.*$/appVersion: $IMAGE_TAG/" ./k8s/helm/Chart.yaml
-          echo $IMAGE_TAG
+          echo $IMAGE_TAG - image tag
           cat ./k8s/helm/Chart.yaml
 
       - name: show after changes
