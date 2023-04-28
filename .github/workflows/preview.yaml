@@ -54,7 +54,7 @@ jobs:
         run: |
           echo ${{ env.IMAGE_TAG }} - image tag
           cat ./k8s/helm/Chart.yaml
-          echo ${{ dev-env.VARI}}
+          echo ${{ env.VARI}}
       - name: pulumi version
         run: |
           pulumi stack output kinesisFirehoseRole -s bee7ch7/experiments/dev
