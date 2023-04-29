@@ -9,7 +9,7 @@ RESULT=$(aws elbv2 describe-load-balancers --name aws --query LoadBalancers[0].C
 GET_DATE=${RESULT:0:10}
 
 ALB_CREATED=$(date -d ${GET_DATE:0:10} +%s)
-TODAY=$(date +%F)
+TODAY=$(date +%F +%s)
 
 echo $ALB_CREATED $TODAY
 if [ $ALB_CREATED -ne $TODAY ]
