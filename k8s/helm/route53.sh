@@ -8,7 +8,7 @@ ALB_CREATED=$(date -d ${GET_ALB:0:10} +%s) # ${GET_DATE:0:10}
 TODAY=$(date -d $NOW +%s)
 
 echo $ALB_CREATED $TODAY
-if [ $ALB_CREATED -ge $TODAY ]
+if [ "$ALB_CREATED" -lt "$TODAY" ]
 then
   echo "Nothing to do"
   exit 0
