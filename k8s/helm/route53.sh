@@ -11,7 +11,7 @@ ALB_CREATED=${RESULT:0:10}
 TODAY=$(date +%F)
 echo $ALB_CREATED
 echo $TODAY
-if [[ "$ALB_CREATED" -ne "$TODAY" ]]
+if [[ "$ALB_CREATED" -eq "$TODAY" ]]
 then
   echo "Nothing to do"
   exit 0
