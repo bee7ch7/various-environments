@@ -12,7 +12,7 @@ ALB_CREATED=$(date -d "2023-03-15" +%s) # ${GET_DATE:0:10}
 TODAY=$(date -d $NOW +%s)
 
 echo $ALB_CREATED $TODAY
-if [ $ALB_CREATED > $TODAY ]
+if [ $ALB_CREATED < $TODAY ]
 then
   echo "Nothing to do"
   exit 0
