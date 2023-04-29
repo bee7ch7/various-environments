@@ -16,3 +16,4 @@ then
   echo "RUN ROUTE53 UPDATE"
 else
   echo NOTHING TO DO
+fi
