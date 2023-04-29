@@ -11,9 +11,11 @@ ALB_CREATED=${RESULT:0:10}
 TODAY=$(date +%F)
 echo $ALB_CREATED
 echo $TODAY
-if [[ "$ALB_CREATED" > "$TODAY" ]]
+if [[ "$ALB_CREATED" -ne "$TODAY" ]]
 then
-  echo "RUN ROUTE53 UPDATE"
-else
-  echo NOTHING TO DO
+  echo "Nothing to do"
+  exit 0
 fi
+
+
+exit 1
