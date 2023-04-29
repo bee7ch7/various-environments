@@ -8,11 +8,11 @@ echo $VAR
 RESULT=$(aws elbv2 describe-load-balancers --name aws --query LoadBalancers[0].CreatedTime --output text)
 GET_DATE=${RESULT:0:10}
 
-ALB_CREATED=$(date -d ${GET_DATE:0:10} +%s)
-TODAY=$(date +%F +%s)
+ALB_CREATED=$(date -d "2023-03-15" +%s) # ${GET_DATE:0:10}
+TODAY=$(date %s)
 
 echo $ALB_CREATED $TODAY
-if [ $ALB_CREATED -ne $TODAY ]
+if [ $ALB_CREATED > $TODAY ]
 then
   echo "Nothing to do"
   exit 0
