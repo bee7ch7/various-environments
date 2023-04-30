@@ -14,5 +14,5 @@ then
   exit 0
 fi
 
-echo "UPDATE ROUTE53"
+echo "UPDATE ROUTE53!"
 
