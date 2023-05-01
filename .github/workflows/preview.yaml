@@ -78,7 +78,7 @@ jobs:
           output=""
           for i in $(gh release list --limit 300 --repo github.com/bee7ch7/aws)
           do
-            release=(i)
+            release=($i)
             echo ${release[0]}
             output+="- ${release[0]}\n"
           done
