@@ -52,4 +52,11 @@ jobs:
    runs-on: ubuntu-latest
    name: "Deploying on : ${{ inputs.environment }}"
    steps:
-     - run: echo release ${{ inputs.choice }} selected
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PAT }}
+
+      - name: show before changes
+        run: cat ./k8s/helm/Chart.yaml
