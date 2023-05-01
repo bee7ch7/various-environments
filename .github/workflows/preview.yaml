@@ -79,7 +79,7 @@ jobs:
           output=""
           for release in $all_releases
           do
-            rel=$(awk '{print $1}' <<< release)
+            rel=$(awk '{print $1}' <<< $release)
             echo $rel
             output+=$rel
           done
