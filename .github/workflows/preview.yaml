@@ -76,14 +76,7 @@ jobs:
       - name: lit releases v2
         run: |
           all_releases=$(gh release list --limit 300 --repo github.com/bee7ch7/aws)
-          output=""
-          for release in $all_releases
-          do
-            rel=$(awk '{print $1}' <<< $release)
-            echo $rel
-            output+=$rel
-          done
-          echo $output
+          echo $all_releases
         env:
           GH_TOKEN: ${{ github.token }}
         
