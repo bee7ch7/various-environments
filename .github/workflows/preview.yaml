@@ -74,7 +74,11 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
       - name: lit releases v2
-        run: gh release list --limit 300 --repo github.com/bee7ch7/aws
+        run: | 
+          for release in $(gh release list --limit 300 --repo github.com/bee7ch7/aws)
+          do
+            echo release - $release[0]
+          done
         env:
           GH_TOKEN: ${{ github.token }}
         
