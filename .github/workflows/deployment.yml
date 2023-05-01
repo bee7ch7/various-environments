@@ -51,4 +51,5 @@ jobs:
  deployment:
    runs-on: ubuntu-latest
    name: "Deploying on : ${{ inputs.environment }}"
-   run: echo release ${{ inputs.choice }} selected
+   steps:
+     - run: echo release ${{ inputs.choice }} selected
