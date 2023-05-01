@@ -34,6 +34,8 @@ jobs:
   semantic_version:
     runs-on: ubuntu-latest
     environment: ${{ github.ref_name }}
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
