@@ -70,7 +70,7 @@ jobs:
           output=""
           for release in $(echo $responses | jq '.[] | .tag_name')
           do
-             output+="- $release\n          "
+             output+="- $release\n"
           done
           echo $output
           sed "s/\$IMAGES_OPTIONS/$output/g" $GITHUB_WORKSPACE/.github/workflows/deployment.template.yaml > $GITHUB_WORKSPACE/.github/workflows/deployment.yml
