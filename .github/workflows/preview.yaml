@@ -63,5 +63,8 @@ jobs:
           cat ./k8s/helm/Chart.yaml
           echo ${{ env.VARI}}
       - name: pulumi version
-        run: bash ./k8s/helm/route53.sh
-        
+        run: |
+          gh api \
+          -H "Accept: application/vnd.github+json" \
+          -H "X-GitHub-Api-Version: 2022-11-28" \
+          /repos/bee7ch7/aws/releases
