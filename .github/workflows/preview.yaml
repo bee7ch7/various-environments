@@ -75,10 +75,10 @@ jobs:
           GH_TOKEN: ${{ github.token }}
       - name: lit releases v2
         run: |
+          all_releases=$(gh release list --limit 300 --repo github.com/bee7ch7/aws)
           output=""
-          for i in $(gh release list --limit 300 --repo github.com/bee7ch7/aws)
+          for release in $all_releases
           do
-            release=($i)
             echo ${release[0]}
             output+="- ${release[0]}\n"
           done
