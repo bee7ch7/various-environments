@@ -62,10 +62,9 @@ jobs:
           echo ${{ env.IMAGE_TAG }} - image tag
           cat ./k8s/helm/Chart.yaml
           echo ${{ env.VARI}}
-      - name: pulumi version
+      - name: list releases
         run: |
           responses=$(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/bee7ch7/aws/releases)
-          echo $responses
           output=""
           for release in $(echo $responses | jq '.[] | .tag_name')
           do
@@ -74,3 +73,8 @@ jobs:
           echo $output
         env:
           GH_TOKEN: ${{ github.token }}
+      - name: lit releases v2
+        run: gh release list --limit 15 --repo github.com/bee7ch7/aws
+        env:
+          GH_TOKEN: ${{ github.token }}
+        
