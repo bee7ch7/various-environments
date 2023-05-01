@@ -5,6 +5,7 @@ on:
       - main
       - prod
       - dev
+  
 permissions: write-all
 
 env:
@@ -71,17 +72,12 @@ jobs:
              output+="- $release\n          "
           done
           echo $output
+          sed "s/\$IMAGES_OPTIONS/$output/g" $GITHUB_WORKSPACE/.github/workflows/deployment.template.yaml > $GITHUB_WORKSPACE/.github/workflows/deployment.yml
+
         env:
           GH_TOKEN: ${{ github.token }}
-      - name: lit releases v2
-        run: |
-          all_releases=$(gh release list --limit 300 --repo github.com/bee7ch7/aws)
-          for i in $(gh release list --limit 300 --repo github.com/bee7ch7/aws)
-          do
-            awk '{print $1}' <<< $i
-          done
-        
-          
-        env:
-          GH_TOKEN: ${{ github.token }}
-        
+             
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update list of images
