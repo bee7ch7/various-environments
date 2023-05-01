@@ -76,7 +76,12 @@ jobs:
       - name: lit releases v2
         run: |
           all_releases=$(gh release list --limit 300 --repo github.com/bee7ch7/aws)
-          echo $all_releases
+          for i in $(gh release list --limit 300 --repo github.com/bee7ch7/aws)
+          do
+            awk '{print $1}' <<< $i
+          done
+        
+          
         env:
           GH_TOKEN: ${{ github.token }}
         
