@@ -79,8 +79,9 @@ jobs:
           output=""
           for release in $all_releases
           do
-            echo ${release[0]}
-            output+="- ${release[0]}\n"
+            rel=awk '{print $1}' <<< release
+            echo $rel
+            output+=$rel
           done
           echo $output
         env:
