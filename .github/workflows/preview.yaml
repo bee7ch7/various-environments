@@ -74,7 +74,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
       - name: lit releases v2
-        run: gh release list --limit 15 --repo github.com/bee7ch7/aws
+        run: gh release list --limit 300 --repo github.com/bee7ch7/aws
         env:
           GH_TOKEN: ${{ github.token }}
         
