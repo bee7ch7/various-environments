@@ -1,7 +1,10 @@
 {
    "branches":[
       "main",
-      "dev",
+      {
+         "name":"dev",
+         "prerelease":true
+      },
       {
          "name":"stage",
          "prerelease":true
@@ -50,7 +53,8 @@
          "@saithodev/semantic-release-backmerge",
          {
             "backmergeBranches": ["dev"],
-            "message": "docs: Preparations for next release [skip ci]"
+            "message": "docs: Preparations for next release [skip ci]",
+            "forcePush": "true"
          }
       ]
    ]
