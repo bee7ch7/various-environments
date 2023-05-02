@@ -13,9 +13,11 @@
    "plugins":[
       [
          "@semantic-release/exec",
-                  {
-                     "successCmd":"git status && git branch"
-                  },
+         {
+            "successCmd":"git status && git branch"
+         }
+      ],
+      [
          "@semantic-release/commit-analyzer",
          {
             "preset":"angular",
@@ -59,7 +61,10 @@
          {
             "allowSameBranchMerge":"true",
             "backmergeBranches":[
-               {"from": "main", "to": "dev"}
+               {
+                  "from":"main",
+                  "to":"dev"
+               }
             ],
             "message":"docs: Preparations for next release [skip ci]",
             "plugins":[
