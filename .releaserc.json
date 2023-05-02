@@ -62,7 +62,7 @@
                [
                   "@semantic-release/exec",
                   {
-                     "successCmd":"git status"
+                     "successCmd":"git request-pull origin/main origin/dev"
                   }
                ]
             ]
