@@ -54,7 +54,7 @@
          {
             "allowSameBranchMerge": "true",
             "backmergeBranches": ["dev"],
-            "message": "docs: Preparations for next release [skip ci]"
+            "message": "docs: eparations for next release [skip ci]"
          }
       ]
    ]
