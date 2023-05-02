@@ -48,12 +48,6 @@
             ]
          }
       ],
-      "@semantic-release/release-notes-generator",
-      [
-         "@saithodev/semantic-release-backmerge",
-         {
-            "backmergeBranches":["dev"]
-         }
-      ]
+      "@semantic-release/release-notes-generator"
    ]
 }
