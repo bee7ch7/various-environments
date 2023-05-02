@@ -54,14 +54,6 @@
          {
             "backmergeBranches":[
                "dev"
-            ],
-            "plugins":[
-               [
-                  "@semantic-release/exec",
-                  {
-                     "successCmd":"echo 'Version in master is ${nextRelease.version}' > version.txt && git add version.txt"
-                  }
-               ]
             ]
          }
       ]
