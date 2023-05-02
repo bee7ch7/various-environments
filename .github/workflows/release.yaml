@@ -25,7 +25,7 @@ jobs:
         id: release
         uses: cycjimmy/semantic-release-action@v3.4.2
         with:
-          semantic_version: 20.0.0
+          semantic_version: 19.0.5
           extra_plugins: |
             @semantic-release/changelog@6.0.0
             @semantic-release/git@10.0.0
