@@ -9,7 +9,7 @@ on:
         value: ${{ jobs.release.outputs.new_release }}
       new_release_version:
         description: "New release version"
-        value: ${{ jobs.release.outputs.new_release_version }} ##
+        value: ${{ jobs.release.outputs.new_release_version }} ###
 jobs:
   release:
     name: Release
