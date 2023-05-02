@@ -8,7 +8,7 @@ on:
         description: "New release is published ? True/False"
         value: ${{ jobs.release.outputs.new_release }}
       new_release_version:
-        description: "New release version"
+        description: "New release version" #
         value: ${{ jobs.release.outputs.new_release_version }} ####
 jobs:
   release:
