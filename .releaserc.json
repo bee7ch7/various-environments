@@ -1,65 +1,69 @@
 {
-  "branches": [
-    "main",
-    {
-      "name": "dev",
-      "prerelease": true
-    },
-    {
-      "name": "stage",
-      "prerelease": true
-    }
-  ],
-  "plugins": [
-    [
-      "@semantic-release/commit-analyzer",
+   "branches":[
+      "main",
       {
-        "preset": "angular",
-        "releaseRules": [
-          {
-            "type": "docs",
-            "scope": "README",
-            "release": "patch"
-          },
-          {
-            "type": "bug",
-            "release": "patch"
-          },
-          {
-            "type": "fix",
-            "release": "patch"
-          },
-          {
-            "type": "refactor",
-            "release": "patch"
-          },
-          {
-            "type": "feature",
-            "release": "minor"
-          },
-          {
-            "type": "release",
-            "release": "major"
-          },
-          {
-            "scope": "no-release",
-            "release": false
-          }
-        ]
-      }
-    ],
-    "@semantic-release/release-notes-generator",
-    [
-      "@semantic-release/changelog",
+         "name":"dev",
+         "prerelease":true
+      },
       {
-        "changelogFile": "docs/CHANGELOG.md"
+         "name":"stage",
+         "prerelease":true
       }
-    ],
-    [
-      "@semantic-release/git",
-      {
-        "assets": ["docs/CHANGELOG.md"]
-      }
-    ]
-  ]
+   ],
+   "plugins":[
+      [
+         "@semantic-release/commit-analyzer",
+         {
+            "preset":"angular",
+            "releaseRules":[
+               {
+                  "type":"docs",
+                  "scope":"README",
+                  "release":"patch"
+               },
+               {
+                  "type":"bug",
+                  "release":"patch"
+               },
+               {
+                  "type":"fix",
+                  "release":"patch"
+               },
+               {
+                  "type":"refactor",
+                  "release":"patch"
+               },
+               {
+                  "type":"feature",
+                  "release":"minor"
+               },
+               {
+                  "type":"release",
+                  "release":"major"
+               },
+               {
+                  "scope":"no-release",
+                  "release":false
+               }
+            ]
+         }
+      ],
+      "@semantic-release/release-notes-generator",
+      [
+         "@saithodev/semantic-release-backmerge",
+         {
+            "backmergeBranches":[
+               "dev"
+            ],
+            "plugins":[
+               [
+                  "@semantic-release/exec",
+                  {
+                     "successCmd":"echo 'Version in master is ${nextRelease.version}' > version.txt && git add version.txt"
+                  }
+               ]
+            ]
+         }
+      ]
+   ]
 }
