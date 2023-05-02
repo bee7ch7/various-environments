@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - main
-      - prod
+      - stage
       - dev
   
 permissions: write-all
@@ -11,8 +11,13 @@ permissions: write-all
 env:
   VARI: hello/${{ github.ref_name }}
   PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+  SEMANTIC_RELEASE_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
 
 jobs:
+  release:
+    uses: ./.github/workflows/release.yaml
+    secrets: inherit
+    
   preview_build:
     runs-on: ubuntu-latest
     environment: ${{ github.ref_name }}
@@ -79,6 +84,6 @@ jobs:
           GH_TOKEN: ${{ github.token }}
              
 
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Update list of images
+#       - uses: stefanzweifel/git-auto-commit-action@v4
+#         with:
+#           commit_message: Update list of images
