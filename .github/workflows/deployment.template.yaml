@@ -1,0 +1,32 @@
+name: Deployment
+
+on:
+ workflow_dispatch:
+   # Inputs the workflow accepts.
+   inputs:
+     version:
+       description: 'Package version to deployed'
+       required: true
+       type: choice
+       options:
+         $IMAGES_OPTIONS
+     environment:
+       description: 'Target Environment'
+       required: true
+       type: choice
+       options:
+         - dev
+         - main
+jobs:
+ deployment:
+   runs-on: ubuntu-latest
+   name: "Deploying on : ${{ inputs.environment }}"
+   steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PAT }}
+
+      - name: show before changes
+        run: cat ./k8s/helm/Chart.yaml
