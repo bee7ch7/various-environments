@@ -12,6 +12,10 @@
    ],
    "plugins":[
       [
+         "@semantic-release/exec",
+                  {
+                     "successCmd":"git status && git branch"
+                  },
          "@semantic-release/commit-analyzer",
          {
             "preset":"angular",
