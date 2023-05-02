@@ -62,7 +62,7 @@
                [
                   "@semantic-release/exec",
                   {
-                     "successCmd":"git request-pull main dev"
+                     "successCmd":"gh pr create --base dev --head main --title \"docs: [skip ci] backmerge\" --body \"[skip ci] backmerge\""
                   }
                ]
             ]
