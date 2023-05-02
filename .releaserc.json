@@ -54,7 +54,7 @@
          {
             "allowSameBranchMerge":"true",
             "backmergeBranches":[
-               "dev"
+               {"from": "main", "to": "dev"}
             ],
             "message":"docs: Preparations for next release [skip ci]",
             "plugins":[
