@@ -52,9 +52,19 @@
       [
          "@saithodev/semantic-release-backmerge",
          {
-            "allowSameBranchMerge": "true",
-            "backmergeBranches": ["dev"],
-            "message": "docs: eparations for next release [skip ci]"
+            "allowSameBranchMerge":"true",
+            "backmergeBranches":[
+               "dev"
+            ],
+            "message":"docs: Preparations for next release [skip ci]",
+            "plugins":[
+               [
+                  "@semantic-release/exec",
+                  {
+                     "successCmd":"echo 'Version in master is ${nextRelease.version}' > version.txt && git add version.txt"
+                  }
+               ]
+            ]
          }
       ]
    ]
