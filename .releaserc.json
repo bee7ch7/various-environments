@@ -52,6 +52,7 @@
       [
          "@saithodev/semantic-release-backmerge",
          {
+            "allowSameBranchMerge": "true",
             "backmergeBranches": ["dev"],
             "message": "docs: Preparations for next release [skip ci]"
          }
