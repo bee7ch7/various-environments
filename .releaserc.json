@@ -53,7 +53,7 @@
          "@saithodev/semantic-release-backmerge",
          {
             "backmergeBranches":[
-               "main"
+               "dev"
             ]
          }
       ]
