@@ -12,6 +12,12 @@
    ],
    "plugins":[
       [
+         "@semantic-release/exec",
+         {
+            "successCmd":"if [ $(git rev-parse --abbrev-ref HEAD) = 'main' ]; then gh pr create --base dev --head main --title 'docs: [skip ci] backmerge' --body '[skip ci] backmerge' ; fi"
+         }
+      ],
+      [
          "@semantic-release/commit-analyzer",
          {
             "preset":"angular",
@@ -49,24 +55,6 @@
          }
       ],
       "@semantic-release/release-notes-generator",
-      "@semantic-release/github",
-      [
-         "@saithodev/semantic-release-backmerge",
-         {
-            "allowSameBranchMerge":"true",
-            "backmergeBranches":[
-               {"from": "main", "to": "dev"}
-            ],
-            "message":"docs: Preparations for next release [skip ci]",
-            "plugins":[
-               [
-                  "@semantic-release/exec",
-                  {
-                     "successCmd":"gh pr create --base dev --head main --title \"docs: [skip ci] backmerge\" --body \"[skip ci] backmerge\""
-                  }
-               ]
-            ]
-         }
-      ]
+      "@semantic-release/github"
    ]
 }

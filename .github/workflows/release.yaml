@@ -29,7 +29,7 @@ jobs:
           extra_plugins: |
             @semantic-release/changelog@6.0.0
             @semantic-release/git@10.0.0
-            @semantic-release/exec
+            @semantic-release/exec@6.0.3
             @saithodev/semantic-release-backmerge@2.2.0
             conventional-changelog-conventionalcommits@4.6.3
         env:
