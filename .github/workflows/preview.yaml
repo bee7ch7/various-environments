@@ -84,6 +84,6 @@ jobs:
           GH_TOKEN: ${{ github.token }}
              
 
-#       - uses: stefanzweifel/git-auto-commit-action@v4
-#         with:
-#           commit_message: Update list of images
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update list of images [skip ci]
