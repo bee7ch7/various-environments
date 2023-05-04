@@ -81,7 +81,7 @@ jobs:
           token: ${{ secrets.PAT }}         
       - name: list releases
         run: |
-          responses=$(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/bee7ch7/aws/releases)
+          responses=$(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/bee7ch7/various-environments/releases)
           output=""
           for release in $(echo $responses | jq '.[] | .tag_name')
           do
