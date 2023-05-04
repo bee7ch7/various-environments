@@ -87,9 +87,11 @@ jobs:
           do
              output+="- $release\n         "
           done
+          output+="- popo\n         "
           echo $output
           sed "s/\$IMAGES_OPTIONS/$output/g" $GITHUB_WORKSPACE/.github/workflows/deployment.template.yaml > $GITHUB_WORKSPACE/.github/workflows/deployment.yml
-
+          echo $GITHUB_WORKSPACE/.github/workflows/deployment.yml
+          cat $GITHUB_WORKSPACE/.github/workflows/deployment.yml
         env:
           GH_TOKEN: ${{ github.token }}
              
