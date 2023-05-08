@@ -69,21 +69,33 @@ jobs:
           echo ${{ env.IMAGE_TAG }} - image tag
           cat ./k8s/helm/Chart.yaml
           echo ${{ env.VARI}}
+  updateWorkflow:
+      runs-on: ubuntu-latest
+      environment: ${{ github.ref_name }}
+      needs: [release]
+      steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PAT }}         
       - name: list releases
         run: |
-          responses=$(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/bee7ch7/aws/releases)
+          responses=$(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/bee7ch7/various-environments/releases)
           output=""
           for release in $(echo $responses | jq '.[] | .tag_name')
           do
              output+="- $release\n         "
           done
+          output+="- popo\n         "
           echo $output
           sed "s/\$IMAGES_OPTIONS/$output/g" $GITHUB_WORKSPACE/.github/workflows/deployment.template.yaml > $GITHUB_WORKSPACE/.github/workflows/deployment.yml
-
+          echo $GITHUB_WORKSPACE/.github/workflows/deployment.yml
+          cat $GITHUB_WORKSPACE/.github/workflows/deployment.yml
         env:
           GH_TOKEN: ${{ github.token }}
              
 
-#       - uses: stefanzweifel/git-auto-commit-action@v4
-#         with:
-#           commit_message: Update list of images
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update list of images [skip ci]
