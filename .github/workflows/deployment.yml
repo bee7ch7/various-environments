@@ -9,6 +9,8 @@ on:
        required: true
        type: choice
        options:
+         - "v1.1.19-dev.13"
+         - "v1.1.19-dev.12"
          - "v1.1.19-dev.9"
          - "v1.1.19-dev.8"
          - "v1.1.19-dev.11"
@@ -37,8 +39,6 @@ on:
          - "v1.1.15-dev.2"
          - "v1.1.15-dev.1"
          - "v1.1.14"
-         - "v1.1.14-stage.1"
-         - "v1.1.14-dev.1"
          - popo
          
      environment:
