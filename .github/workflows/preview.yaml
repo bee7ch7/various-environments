@@ -99,3 +99,6 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Update list of images [skip ci]
+          
+      - name: vcluster
+        run: vcluster --version
