@@ -9,6 +9,7 @@ on:
        required: true
        type: choice
        options:
+         - "v1.1.25"
          - "v1.1.24"
          - "v1.1.23"
          - "v1.1.23-dev.1"
@@ -38,7 +39,6 @@ on:
          - "v1.1.16-stage.2"
          - "v1.1.16-stage.1"
          - "v1.1.16-dev.3"
-         - "v1.1.16-dev.2"
          - popo
          
      environment:
